@@ -1,15 +1,7 @@
 import * as anchor from "@coral-xyz/anchor";
-import { AnchorProvider, Program, web3, setProvider } from "@coral-xyz/anchor";
+import { Program, web3 } from "@coral-xyz/anchor";
 import { Counter } from "../target/types/counter";
-import {
-  Transaction,
-  Keypair,
-  PublicKey,
-  SystemProgram,
-} from "@solana/web3.js";
 import * as assert from "assert";
-import IDL from '../target/idl/counter.json'
-
 
 describe('counter', () => {
     
