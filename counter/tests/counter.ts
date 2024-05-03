@@ -10,7 +10,6 @@ describe('counter', () => {
 
   const program = anchor.workspace.counter as Program<Counter>
 
-
   it('Initializes the counter', async () => {
       // Find the PDA for the data account.
       const [counterAccountPda, _] = web3.PublicKey.findProgramAddressSync(
