@@ -6,13 +6,13 @@ declare_id!("At9ckAgMM2QJpBzjwBZMcDew72xwQTw6cfFgMMREJTAr");
 pub mod counter_lab {
     use super::*;
 
-    pub fn initializeCounter(ctx: Context<InitializeCounter>) -> Result<()> {
+    pub fn initialize_counter(ctx: Context<InitializeCounter>) -> Result<()> {
         let counter = &mut ctx.accounts.counter_account.counter;
         *counter = 0;
         Ok(())
     }
 
-    pub fn incrementCounter(ctx: Context<IncrementCounter>) -> Result<()> {
+    pub fn increment_counter(ctx: Context<IncrementCounter>) -> Result<()> {
         let counter = &mut ctx.accounts.counter_account.counter;
         *counter +=1;
         Ok(())
