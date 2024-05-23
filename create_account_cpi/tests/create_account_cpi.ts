@@ -3,12 +3,13 @@ import { Program } from "@coral-xyz/anchor";
 import { SystemProgram } from "@solana/web3.js";
 import { expect } from "chai";
 import { CreateAccountCpi } from "../target/types/create_account_cpi";
+import { CreatePdaExample } from "../target/types/create_pda_example";
 
 describe("create_account_cpi", () => {
   const provider = anchor.AnchorProvider.env();
   anchor.setProvider(provider);
 
-  const program = anchor.workspace.CreateAccountCpi as Program<CreateAccountCpi>;
+  const program = anchor.workspace.CreatePdaExample as Program<CreatePdaExample>;
 
   it("Creates a PDA account", async () => {
     const payer = anchor.web3.Keypair.generate();
@@ -19,9 +20,10 @@ describe("create_account_cpi", () => {
       [Buffer.from("my_seed")],
       program.programId
     );
+    
 
     await program.methods
-      .createPdaAccount()
+      .createAccountCpi()
       .accounts({
         payer: payer.publicKey,
         pdaAccount: pda,
