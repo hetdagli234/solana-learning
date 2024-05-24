@@ -14,7 +14,7 @@ describe("create_account_cpi", () => {
   it("Creates a PDA account", async () => {
     const payer = anchor.web3.Keypair.generate();
     const signature = await provider.connection.requestAirdrop(payer.publicKey, 1_000_000_000);
-    await provider.connection.confirmTransaction(signature);
+    await provider.connection.confirmTransaction(signature, 'confirmed');
 
     const [pda, _bump] = anchor.web3.PublicKey.findProgramAddressSync(
       [Buffer.from("my_seed")],
