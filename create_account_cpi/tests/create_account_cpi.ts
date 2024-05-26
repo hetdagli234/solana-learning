@@ -28,10 +28,9 @@ describe("create_account_cpi", () => {
         payer: payer.publicKey,
         pdaAccount: pda,
         systemProgram: SystemProgram.programId,
-      })
+      } as any)
       .signers([payer])
       .rpc();
-
     const pdaAccount = await provider.connection.getAccountInfo(pda);
     expect(pdaAccount).to.not.be.null;
     expect(pdaAccount!.owner).to.eql(program.programId);
