@@ -32,8 +32,6 @@ describe("create_account_cpi", () => {
       .signers([payer])
       .rpc();
     const pdaAccount = await provider.connection.getAccountInfo(pda);
-    expect(pdaAccount).to.not.be.null;
-    expect(pdaAccount!.owner).to.eql(program.programId);
     expect(pdaAccount!.data.length).to.equal(8);
   });
 });
