@@ -13,7 +13,7 @@ pub mod create_pda_example {
 
         anchor_lang::system_program::create_account(
             CpiContext::new(
-                ctx.accounts.system_program.to_account_info(),
+                ctx.accounts.pda_account.to_account_info(),
                 system_program::CreateAccount {
                     from: ctx.accounts.payer.to_account_info(),
                     to: ctx.accounts.pda_account.to_account_info(),
