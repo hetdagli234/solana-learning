@@ -25,7 +25,6 @@ describe('counter', () => {
       const account = await program.account.counterAccount.fetch(counterAccountPda);
       console.log(account.counter)
       assert.ok(account.counter === 69);
-      console.log('Counter is initialized to', account.counter.toString());
   });
 
   it('Increments the counter', async () => {
