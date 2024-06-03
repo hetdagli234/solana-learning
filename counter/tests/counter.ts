@@ -29,7 +29,7 @@ describe('counter', () => {
 
   it('Increments the counter', async () => {
       // Find the PDA for the data account.
-      const [dataAccountPda, _] = web3.PublicKey.findProgramAddressSync(
+      const [dataAccountPda, seed] = web3.PublicKey.findProgramAddressSync(
           [Buffer.from('counter'), provider.wallet.publicKey.toBuffer()],
           program.programId
       );
