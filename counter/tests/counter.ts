@@ -18,13 +18,13 @@ describe('counter', () => {
       );
 
       const tx = await program.methods
-        .initialize(69)  // Pass a number directly
+        .initialize(1)  // Pass a number directly
         .rpc()
 
       // Fetch the account to verify its state.
       const account = await program.account.counterAccount.fetch(counterAccountPda);
       console.log(account.counter)
-      assert.ok(account.counter === 69);
+      assert.ok(account.counter === 1);
   });
 
   it('Increments the counter', async () => {
@@ -42,7 +42,7 @@ describe('counter', () => {
       // Fetch the account to verify its state.
       const account = await program.account.counterAccount.fetch(dataAccountPda);
       console.log(account.counter)
-      assert.ok(account.counter === 70);
+      assert.ok(account.counter === 2);
       console.log('Counter is incremented to', account.counter.toString());
   });
 });
